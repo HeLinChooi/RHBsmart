@@ -16,12 +16,12 @@ const TextInput = () => (
     <MyForm noValidate autoComplete="off">
       <TextField
         id="standard-text"
-        label="メッセージを入力"
+        label="Your Message"
         sx={{ width: "100%" }}
       // margin="normal"
       />
       <Button variant="contained" color="primary">
-        <SendIcon color="white"/>
+        <SendIcon color="white" />
       </Button>
     </MyForm>
   </>

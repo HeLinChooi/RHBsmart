@@ -94,7 +94,7 @@ export const MessageLeft = (props) => {
   return (
     <>
       <div style={{ display: "flex" }}>
-        <Avatar
+        {/* <Avatar
           alt={displayName}
           sx={{
             color: theme.palette.getContrastText(deepOrange[500]),
@@ -103,9 +103,9 @@ export const MessageLeft = (props) => {
             height: theme.spacing(4),
           }}
           src={photoURL}
-        />
+        /> */}
         <div>
-          <div style={{ marginLeft: "20px" }}>{displayName}</div>
+          {/* <div style={{ marginLeft: "20px" }}>{displayName}</div> */}
           <BlueMessage>
             <div>
               <p style={{ padding: 0, margin: 0 }}>{message}</p>

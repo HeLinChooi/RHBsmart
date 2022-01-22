@@ -1,31 +1,47 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
 import { Paper } from "@mui/material";
+import MDBox from "components/MDBox";
+import ProfileCard from "examples/Cards/ProfileCard";
+import womenProfile from "assets/images/cropped-woman-profile.jpg";
 import TextInput from "./TextInput";
 import { MessageLeft, MessageRight } from "./Message";
 
 const MyPaper = styled(Paper)({
-  width: "80vw",
-  height: "80vh",
-  maxWidth: "500px",
+  width: "100%",
+  height: "100%",
+  // maxWidth: "500px",
   maxHeight: "700px",
   display: "flex",
   alignItems: "center",
   flexDirection: "column",
   position: "relative",
 });
+const Container = styled("div")(({ theme }) => ({
+  display: "flex",
+  paddingTop: "20px",
+  [theme.breakpoints.down("md")]: {
+    flexDirection: "column",
+  },
+}));
 
 export default function ChatRoom() {
   return (
-    <div
-      style={{
-        // width: "100vw",
-        height: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
+    <Container>
+      <MDBox sx={{ minWidth: "100px" }}>
+        <ProfileCard
+          color="dark"
+          icon={womenProfile}
+          name="Aaron"
+          jobTitle="Professional Financial Advisor"
+          percentage={{
+            color: "success",
+            // amount: "+55%",
+            label:
+              "I provide comprehensive insurance planning for professionals while they are in school, residency, or working full time.",
+          }}
+        />
+      </MDBox>
       <MyPaper zDepth={2}>
         <Paper
           id="style-1"
@@ -68,6 +84,6 @@ export default function ChatRoom() {
         </Paper>
         <TextInput />
       </MyPaper>
-    </div>
+    </Container>
   );
 }

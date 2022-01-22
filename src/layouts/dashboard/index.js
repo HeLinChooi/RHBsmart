@@ -13,6 +13,8 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
+import { useEffect, useState } from "react";
+
 // @mui material components
 import Grid from "@mui/material/Grid";
 
@@ -37,9 +39,42 @@ import Projects from "layouts/dashboard/components/Projects";
 import PieChart from "examples/Charts/PieChart";
 import { Divider } from "@mui/material";
 
+function compare(a, b) {
+  if (a.txn_date < b.txn_date) {
+    return 1;
+  }
+  if (a.txn_date > b.txn_date) {
+    return -1;
+  }
+  // a must be equal to b
+  return 0;
+}
 function Dashboard() {
   const { tasks } = reportsLineChartData;
-  console.log(customer6CreditCardTxn)
+  const [txnArr, setTxnArr] = useState([]);
+  console.log(customer6CreditCardTxn);
+
+  const getDateObj = (dateStr) => {
+    const dateParts = dateStr.split("/");
+
+    // month is 0-based, that's why we need dataParts[1] - 1
+    const dateObject = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
+    return dateObject;
+  };
+  const get5LatestTxn = () => {
+    const arr = customer6CreditCardTxn.map((txn) => ({
+      ...txn,
+      txn_date: getDateObj(txn.TRANSACTION_DATE),
+    }));
+    // console.log(arr.map(item => item.txn_date));
+    arr.sort(compare);
+    // console.log(arr.map(item => item.txn_date));
+    setTxnArr(arr);
+  };
+
+  useEffect(() => {
+    get5LatestTxn();
+  }, []);
 
   return (
     <DashboardLayout>
@@ -155,7 +190,7 @@ function Dashboard() {
               />
             </Grid>
             <Grid item xs={12} md={6} lg={8}>
-              <Projects />
+              <Projects txnArr={txnArr}/>
             </Grid>
           </Grid>
         </MDBox>
