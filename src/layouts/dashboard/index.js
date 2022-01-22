@@ -30,6 +30,7 @@ import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatist
 // Data
 import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
 import reportsLineChartData from "layouts/dashboard/data/reportsLineChartData";
+import customer6CreditCardTxn from "layouts/dashboard/data/creditcard_txn_cust_id_6.json";
 
 // Dashboard components
 import Projects from "layouts/dashboard/components/Projects";
@@ -37,7 +38,8 @@ import PieChart from "examples/Charts/PieChart";
 import { Divider } from "@mui/material";
 
 function Dashboard() {
-  const { sales, tasks } = reportsLineChartData;
+  const { tasks } = reportsLineChartData;
+  console.log(customer6CreditCardTxn)
 
   return (
     <DashboardLayout>
