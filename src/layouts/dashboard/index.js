@@ -33,7 +33,8 @@ import reportsLineChartData from "layouts/dashboard/data/reportsLineChartData";
 
 // Dashboard components
 import Projects from "layouts/dashboard/components/Projects";
-import OrdersOverview from "layouts/dashboard/components/OrdersOverview";
+import PieChart from "examples/Charts/PieChart";
+import { Divider } from "@mui/material";
 
 function Dashboard() {
   const { sales, tasks } = reportsLineChartData;
@@ -43,12 +44,12 @@ function Dashboard() {
       <DashboardNavbar />
       <MDBox py={3}>
         <Grid container spacing={3}>
-          <Grid item xs={12} md={6} lg={3}>
+          <Grid item xs={12} md={6} lg={4} mb={1.5}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 color="dark"
                 icon="weekend"
-                title="Bookings"
+                title="Spendings"
                 count={281}
                 percentage={{
                   color: "success",
@@ -56,13 +57,10 @@ function Dashboard() {
                   label: "than lask week",
                 }}
               />
-            </MDBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={3}>
-            <MDBox mb={1.5}>
+              <br />
               <ComplexStatisticsCard
-                icon="leaderboard"
-                title="Today's Users"
+                icon="savings"
+                title="Savings"
                 count="2,300"
                 percentage={{
                   color: "success",
@@ -72,38 +70,30 @@ function Dashboard() {
               />
             </MDBox>
           </Grid>
-          <Grid item xs={12} md={6} lg={3}>
+          <Grid item xs={12} md={6} lg={4}>
             <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                color="success"
-                icon="store"
-                title="Revenue"
-                count="34k"
-                percentage={{
-                  color: "success",
-                  amount: "+1%",
-                  label: "than yesterday",
-                }}
+              <ReportsLineChart
+                color="primary"
+                title="Spending Projection"
+                description="Estimated January 2023: "
+                date="just updated"
+                chart={tasks}
               />
             </MDBox>
           </Grid>
-          <Grid item xs={12} md={6} lg={3}>
+          <Grid item xs={12} md={6} lg={4}>
             <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                color="primary"
-                icon="person_add"
-                title="Followers"
-                count="+91"
-                percentage={{
-                  color: "success",
-                  amount: "",
-                  label: "Just updated",
-                }}
+              <ReportsBarChart
+                color="success"
+                title="Saving Projection"
+                description="Estimated January 2023: "
+                date="campaign sent 2 days ago"
+                chart={reportsBarChartData}
               />
             </MDBox>
           </Grid>
         </Grid>
-        <MDBox mt={4.5}>
+        {/* <MDBox mt={4.5}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={6} lg={4}>
               <MDBox mb={3}>
@@ -143,14 +133,27 @@ function Dashboard() {
               </MDBox>
             </Grid>
           </Grid>
-        </MDBox>
+        </MDBox> */}
+        <Divider sx={{ mb: 3 }} />
         <MDBox>
           <Grid container spacing={3}>
+            <Grid item xs={12} md={6} lg={4}>
+              <PieChart
+                icon={{ color: "info", component: "leaderboard" }}
+                title="Monthly Spendings"
+                description="Categories"
+                chart={{
+                  labels: ["Facebook", "Direct", "Organic", "Referral"],
+                  datasets: {
+                    label: "Projects",
+                    backgroundColors: ["info", "primary", "dark", "secondary", "primary"],
+                    data: [15, 20, 12, 60],
+                  },
+                }}
+              />
+            </Grid>
             <Grid item xs={12} md={6} lg={8}>
               <Projects />
-            </Grid>
-            <Grid item xs={12} md={6} lg={4}>
-              <OrdersOverview />
             </Grid>
           </Grid>
         </MDBox>

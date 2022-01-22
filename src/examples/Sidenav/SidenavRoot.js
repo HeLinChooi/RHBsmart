@@ -22,13 +22,11 @@ export default styled(Drawer)(({ theme, ownerState }) => {
   const { transparentSidenav, whiteSidenav, miniSidenav, darkMode } = ownerState;
 
   const sidebarWidth = 250;
-  const { transparent, gradients, white, background } = palette;
+  const { transparent, white, background } = palette;
   const { xxl } = boxShadows;
   const { pxToRem, linearGradient } = functions;
 
-  let backgroundValue = darkMode
-    ? background.sidenav
-    : linearGradient(gradients.dark.main, gradients.dark.state);
+  let backgroundValue = darkMode ? background.sidenav : linearGradient("#70CDE3", "#0067B1");
 
   if (transparentSidenav) {
     backgroundValue = transparent.main;
@@ -44,10 +42,11 @@ export default styled(Drawer)(({ theme, ownerState }) => {
       easing: transitions.easing.sharp,
       duration: transitions.duration.shorter,
     }),
-
+    margin: 0,
+    height: "100%",
+    borderRadius: "0px",
     [breakpoints.up("xl")]: {
       boxShadow: transparentSidenav ? "none" : xxl,
-      marginBottom: transparentSidenav ? 0 : "inherit",
       left: "0",
       width: sidebarWidth,
       transform: "translateX(0)",
@@ -66,10 +65,12 @@ export default styled(Drawer)(({ theme, ownerState }) => {
       easing: transitions.easing.sharp,
       duration: transitions.duration.shorter,
     }),
+    margin: 0,
+    height: "100%",
+    borderRadius: "0px",
 
     [breakpoints.up("xl")]: {
       boxShadow: transparentSidenav ? "none" : xxl,
-      marginBottom: transparentSidenav ? 0 : "inherit",
       left: "0",
       width: pxToRem(96),
       overflowX: "hidden",
