@@ -25,86 +25,51 @@ import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 
-import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatisticsCard";
 import { Divider } from "@mui/material";
-import SimpleStatisticsCard from "examples/Cards/StatisticsCards/SimpleStatisticsCard";
 import MDButton from "components/MDButton";
+import DefaultProjectCard from "examples/Cards/ProjectCards/DefaultProjectCard";
+import academyResource from "layouts/academy/data";
 
 function Academy() {
+
+  const academyKeys = ['invest', 'loan', 'credit_card'];
 
   return (
     <DashboardLayout>
       <DashboardNavbar />
       <MDBox pt={6} pb={3}>
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={6} lg={4}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                color="dark"
-                icon="weekend"
-                title="Suitable Risk"
-                count={281}
-                percentage={{
-                  color: "success",
-                  amount: "+55%",
-                  label: "than lask week",
-                }}
-              />
-            </MDBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={4}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                icon="savings"
-                title="Suggested Academy Period"
-                count="2,300"
-                percentage={{
-                  color: "success",
-                  amount: "+3%",
-                  label: "than last month",
-                }}
-              />
-            </MDBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={4}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                color="success"
-                icon="leaderboard"
-                title="Suggested Strategy"
-                count="34k"
-                percentage={{
-                  color: "success",
-                  amount: "+1%",
-                  label: "than yesterday",
-                }}
-              />
-            </MDBox>
-          </Grid>
-        </Grid>
-        <Divider />
-        <Grid container direction="row"
-          justifyContent="space-between" spacing={3}>
-          <Grid item>
-            <MDTypography>Suggested Products</MDTypography>
-          </Grid>
-          <Grid item>
-            <MDButton variant="text" color="info">View All</MDButton>
-          </Grid>
-        </Grid>
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={6} lg={4}>
-            <SimpleStatisticsCard
-              title="Deposits Fund"
-              count="RM230,220"
-              percentage={{
-                color: "success",
-                amount: "+55%",
-                label: "since last month",
-              }}
-            />
-          </Grid>
-        </Grid>
+        {
+          academyKeys.map((key) => (
+            <>
+              <Grid container direction="row" justifyContent="space-between" spacing={3}>
+                <Grid item>
+                  <MDTypography variant="h4">{academyResource[key].title}</MDTypography>
+                </Grid>
+                <Grid item>
+                  <MDButton variant="text" color="info">
+                    View All
+                  </MDButton>
+                </Grid>
+              </Grid>
+              <Grid container spacing={3}>
+                {academyResource[key].resource.map((resource) => (
+                  <Grid item xs={12} md={6} lg={4}>
+                    <MDBox mb={1.5}>
+                      <DefaultProjectCard
+                        image={resource.image}
+                        label={resource.label}
+                        title={resource.title}
+                        description={resource.description}
+                        action={resource.action}
+                      />
+                    </MDBox>
+                  </Grid>
+                ))}
+              </Grid>
+              <Divider />
+            </>
+          ))
+        }
       </MDBox>
       <Footer />
     </DashboardLayout>

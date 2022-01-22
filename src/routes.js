@@ -60,7 +60,7 @@ const routes = [
   {
     type: "collapse",
     name: "Investment",
-    key: "tables",
+    key: "investment",
     icon: <Icon fontSize="small">trending_up</Icon>,
     route: "/investment",
     component: <Tables />,

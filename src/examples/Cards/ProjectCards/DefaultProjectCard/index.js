@@ -68,6 +68,7 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
           title={title}
           sx={{
             maxWidth: "100%",
+            height: "200px",
             margin: 0,
             boxShadow: ({ boxShadows: { md } }) => md,
             objectFit: "cover",
@@ -75,7 +76,7 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
           }}
         />
       </MDBox>
-      <MDBox mt={1} mx={0.5}>
+      <MDBox mt={1} mx={1.5} mb={1}>
         <MDTypography variant="button" fontWeight="regular" color="text" textTransform="capitalize">
           {label}
         </MDTypography>
