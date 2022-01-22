@@ -40,7 +40,7 @@ import Dashboard from "layouts/dashboard";
 import Tables from "layouts/investment";
 import Billing from "layouts/billing";
 import Academy from "layouts/academy";
-import Notifications from "layouts/notifications";
+import Notifications from "layouts/myAdvisor";
 import Profile from "layouts/profile";
 // import SignIn from "layouts/authentication/sign-in";
 // import SignUp from "layouts/authentication/sign-up";
@@ -83,10 +83,10 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "My Peer",
-    key: "notifications",
+    name: "My Advisor",
+    key: "myAdvisor",
     icon: <Icon fontSize="small">chat</Icon>,
-    route: "/notifications",
+    route: "/my-advisor",
     component: <Notifications />,
   },
   {
