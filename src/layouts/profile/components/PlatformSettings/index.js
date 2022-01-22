@@ -25,7 +25,6 @@ import MDTypography from "components/MDTypography";
 
 function PlatformSettings() {
   const [followsMe, setFollowsMe] = useState(true);
-  const [answersPost, setAnswersPost] = useState(false);
   const [mentionsMe, setMentionsMe] = useState(true);
   const [newLaunches, setNewLaunches] = useState(false);
   const [productUpdate, setProductUpdate] = useState(true);
@@ -48,17 +47,7 @@ function PlatformSettings() {
           </MDBox>
           <MDBox width="80%" ml={0.5}>
             <MDTypography variant="button" fontWeight="regular" color="text">
-              Email me when someone follows me
-            </MDTypography>
-          </MDBox>
-        </MDBox>
-        <MDBox display="flex" alignItems="center" mb={0.5} ml={-1.5}>
-          <MDBox mt={0.5}>
-            <Switch checked={answersPost} onChange={() => setAnswersPost(!answersPost)} />
-          </MDBox>
-          <MDBox width="80%" ml={0.5}>
-            <MDTypography variant="button" fontWeight="regular" color="text">
-              Email me when someone answers on my post
+              Email me when subscribed products are updated
             </MDTypography>
           </MDBox>
         </MDBox>
@@ -68,7 +57,7 @@ function PlatformSettings() {
           </MDBox>
           <MDBox width="80%" ml={0.5}>
             <MDTypography variant="button" fontWeight="regular" color="text">
-              Email me when someone mentions me
+              Email me when my advisor texts me
             </MDTypography>
           </MDBox>
         </MDBox>
