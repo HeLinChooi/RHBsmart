@@ -41,14 +41,10 @@ function Investment() {
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 color="dark"
-                icon="weekend"
-                title="Suitable Risk"
-                count={281}
-                percentage={{
-                  color: "success",
-                  amount: "+55%",
-                  label: "than lask week",
-                }}
+                icon="error"
+                title="Risk Level"
+                count="Low"
+                perentage={null}
               />
             </MDBox>
           </Grid>
@@ -57,12 +53,8 @@ function Investment() {
               <ComplexStatisticsCard
                 icon="savings"
                 title="Suggested Investment Period"
-                count="2,300"
-                percentage={{
-                  color: "success",
-                  amount: "+3%",
-                  label: "than last month",
-                }}
+                count="8 years"
+                perentage={null}
               />
             </MDBox>
           </Grid>
@@ -72,12 +64,8 @@ function Investment() {
                 color="success"
                 icon="leaderboard"
                 title="Suggested Strategy"
-                count="34k"
-                percentage={{
-                  color: "success",
-                  amount: "+1%",
-                  label: "than yesterday",
-                }}
+                count="Dolar-cost Averaging"
+                perentage={null}
               />
             </MDBox>
           </Grid>
