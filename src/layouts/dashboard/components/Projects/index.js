@@ -24,11 +24,43 @@ import MDTypography from "components/MDTypography";
 import DataTable from "examples/Tables/DataTable";
 
 // Data
-import data from "layouts/dashboard/components/Projects/data";
+// import data from "layouts/dashboard/components/Projects/data";
 // import MDButton from "components/MDButton";
 
-function Projects() {
-  const { columns, rows } = data();
+const data = {
+  columns: [
+    { Header: "date", accessor: "date", align: "center" },
+    { Header: "title", accessor: "title", width: "45%", align: "left" },
+    { Header: "product", accessor: "product", width: "10%", align: "left" },
+    { Header: "amount", accessor: "amount", align: "center" },
+  ],
+
+  rows: [
+    {
+      companies: <b>Company 1</b>,
+      date: "14/01/2022",
+      amount: (
+        <MDTypography variant="caption" color="text" fontWeight="medium">
+          $14,000
+        </MDTypography>
+      ),
+      categories: "Investment",
+    },
+  ],
+};
+
+function Projects({ txnArr }) {
+  const { columns } = data;
+  const rows = txnArr.map((txn) => ({
+    title: <b>{txn.TRAN_DESC_DETAIL}</b>,
+    date: txn.TRANSACTION_DATE,
+    amount: (
+      <MDTypography variant="caption" color="text" fontWeight="medium">
+        {txn.TRANSACTION_AMT}
+      </MDTypography>
+    ),
+    product: txn.Product,
+  }));
 
   return (
     <Card>
