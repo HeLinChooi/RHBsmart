@@ -25,7 +25,6 @@ import MDBox from "components/MDBox";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
-import ReportsBarChart from "examples/Charts/BarCharts/ReportsBarChart";
 import ReportsLineChart from "examples/Charts/LineCharts/ReportsLineChart";
 import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatisticsCard";
 
@@ -39,6 +38,14 @@ import Projects from "layouts/dashboard/components/Projects";
 import PieChart from "examples/Charts/PieChart";
 import { Divider } from "@mui/material";
 
+const merchantCategoryMap = {
+  5691: 'Men and Women Clothing Stores',
+  5499: 'Food Stores.Convenience',
+  5964: 'Direct Marketing.Catalog Merchants',
+  6540: 'POI Funding Transactions(Excluding MoneySend)',
+  7011: 'Lodging.Hotels, Motels, Resorts',
+}
+
 function compare(a, b) {
   if (a.txn_date < b.txn_date) {
     return 1;
@@ -49,10 +56,26 @@ function compare(a, b) {
   // a must be equal to b
   return 0;
 }
+function compareTotalSpending(a, b) {
+  if (a.total < b.total) {
+    return 1;
+  }
+  if (a.total > b.total) {
+    return -1;
+  }
+  // a must be equal to b
+  return 0;
+}
+function groupBy(xs, key) {
+  return xs.reduce((rv, x) => {
+    (rv[x[key]] = rv[x[key]] || []).push(x);
+    return rv;
+  }, {});
+}
 function Dashboard() {
   const { tasks } = reportsLineChartData;
   const [txnArr, setTxnArr] = useState([]);
-  console.log(customer6CreditCardTxn);
+  const [topSpendings, setTopSpendings] = useState([]);
 
   const getDateObj = (dateStr) => {
     const dateParts = dateStr.split("/");
@@ -61,7 +84,7 @@ function Dashboard() {
     const dateObject = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
     return dateObject;
   };
-  const get5LatestTxn = () => {
+  const getLatestTxn = () => {
     const arr = customer6CreditCardTxn.map((txn) => ({
       ...txn,
       txn_date: getDateObj(txn.TRANSACTION_DATE),
@@ -70,10 +93,31 @@ function Dashboard() {
     arr.sort(compare);
     // console.log(arr.map(item => item.txn_date));
     setTxnArr(arr);
+    console.log(arr[0]);
+    // calculate top 5 spending categories as well
+    const arrCopy = arr.map(item => item);
+    const spendingCategories = groupBy(arrCopy, "MERCH_CATEGORY");
+    console.log(spendingCategories)
+    const categoriesToTotalSpend = []
+    Object.keys(spendingCategories).forEach(categoryKey => {
+      const total = spendingCategories[categoryKey].map(item => item.TRANSACTION_AMT).reduce((acc, cur) => {
+        // const curTxnAmt = cur.TRANSACTION_AMT ? cur.TRANSACTION_AMT : 0
+        // console.log(curTxnAmt)
+        // const ret = acc.TRANSACTION_AMT + curTxnAmt;
+        console.log("");
+        return acc + cur
+      }, 0)
+      categoriesToTotalSpend.push({ label: categoryKey, total })
+    })
+    console.log('categoriesToTotalSpend', categoriesToTotalSpend)
+    // sort
+    categoriesToTotalSpend.sort(compareTotalSpending);
+    console.log(categoriesToTotalSpend)
+    setTopSpendings(categoriesToTotalSpend)
   };
 
   useEffect(() => {
-    get5LatestTxn();
+    getLatestTxn();
   }, []);
 
   return (
@@ -87,11 +131,11 @@ function Dashboard() {
                 color="dark"
                 icon="weekend"
                 title="Spendings"
-                count={281}
+                count={9100}
                 percentage={{
-                  color: "success",
-                  amount: "+55%",
-                  label: "than lask week",
+                  color: "info",
+                  amount: "+5%",
+                  label: "than last month",
                 }}
               />
               <br />
@@ -111,7 +155,7 @@ function Dashboard() {
             <MDBox mb={1.5}>
               <ReportsLineChart
                 color="primary"
-                title="Spending Projection"
+                title="Spending Records"
                 description="Estimated January 2023: "
                 date="just updated"
                 chart={tasks}
@@ -120,9 +164,9 @@ function Dashboard() {
           </Grid>
           <Grid item xs={12} md={6} lg={4}>
             <MDBox mb={1.5}>
-              <ReportsBarChart
+              <ReportsLineChart
                 color="success"
-                title="Saving Projection"
+                title="Saving Records"
                 description="Estimated January 2023: "
                 date="campaign sent 2 days ago"
                 chart={reportsBarChartData}
@@ -130,67 +174,26 @@ function Dashboard() {
             </MDBox>
           </Grid>
         </Grid>
-        {/* <MDBox mt={4.5}>
-          <Grid container spacing={3}>
-            <Grid item xs={12} md={6} lg={4}>
-              <MDBox mb={3}>
-                <ReportsBarChart
-                  color="info"
-                  title="website views"
-                  description="Last Campaign Performance"
-                  date="campaign sent 2 days ago"
-                  chart={reportsBarChartData}
-                />
-              </MDBox>
-            </Grid>
-            <Grid item xs={12} md={6} lg={4}>
-              <MDBox mb={3}>
-                <ReportsLineChart
-                  color="success"
-                  title="daily sales"
-                  description={
-                    <>
-                      (<strong>+15%</strong>) increase in today sales.
-                    </>
-                  }
-                  date="updated 4 min ago"
-                  chart={sales}
-                />
-              </MDBox>
-            </Grid>
-            <Grid item xs={12} md={6} lg={4}>
-              <MDBox mb={3}>
-                <ReportsLineChart
-                  color="dark"
-                  title="completed tasks"
-                  description="Last Campaign Performance"
-                  date="just updated"
-                  chart={tasks}
-                />
-              </MDBox>
-            </Grid>
-          </Grid>
-        </MDBox> */}
         <Divider sx={{ mb: 3 }} />
         <MDBox>
           <Grid container spacing={3}>
             <Grid item xs={12} md={6} lg={4}>
               <PieChart
                 icon={{ color: "info", component: "leaderboard" }}
-                title="Monthly Spendings"
+                title="Monthly Spendings (RM)"
                 description="Categories"
                 chart={{
-                  labels: ["Facebook", "Direct", "Organic", "Referral"],
+                  labels: topSpendings.slice(0, 5).map(category => merchantCategoryMap[category.label]),
                   datasets: {
                     label: "Projects",
                     backgroundColors: ["info", "primary", "dark", "secondary", "primary"],
-                    data: [15, 20, 12, 60],
+                    data: topSpendings.slice(0, 5).map(category => category.total),
                   },
                 }}
               />
             </Grid>
             <Grid item xs={12} md={6} lg={8}>
-              <Projects txnArr={txnArr}/>
+              <Projects txnArr={txnArr} />
             </Grid>
           </Grid>
         </MDBox>

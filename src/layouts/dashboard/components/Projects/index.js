@@ -25,7 +25,7 @@ import DataTable from "examples/Tables/DataTable";
 
 // Data
 // import data from "layouts/dashboard/components/Projects/data";
-// import MDButton from "components/MDButton";
+import ToggleButton from '../ToggleButton';
 
 const data = {
   columns: [
@@ -70,12 +70,16 @@ function Projects({ txnArr }) {
             Transactions
           </MDTypography>
         </MDBox>
+        <MDBox>
+          <ToggleButton/>
+        </MDBox>
         <MDButton variant="text" color="info">
           View More
         </MDButton>
       </MDBox>
       <MDBox>
         <DataTable
+          // table={{ columns, rows: rows.slice(0, 5) }}
           table={{ columns, rows }}
           showTotalEntries={false}
           isSorted={false}
