@@ -67,7 +67,7 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
           component="img"
           title={title}
           sx={{
-            maxWidth: "100%",
+            width: "100%",
             height: "200px",
             margin: 0,
             boxShadow: ({ boxShadows: { md } }) => md,
