@@ -29,6 +29,7 @@ import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatist
 import { Divider } from "@mui/material";
 import SimpleStatisticsCard from "examples/Cards/StatisticsCards/SimpleStatisticsCard";
 import MDButton from "components/MDButton";
+import investmentProducts from "./data/investmentProducts";
 
 function Investment() {
 
@@ -41,14 +42,10 @@ function Investment() {
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 color="dark"
-                icon="weekend"
-                title="Suitable Risk"
-                count={281}
-                percentage={{
-                  color: "success",
-                  amount: "+55%",
-                  label: "than lask week",
-                }}
+                icon="error"
+                title="Risk Level"
+                count="Low"
+                perentage={null}
               />
             </MDBox>
           </Grid>
@@ -57,12 +54,8 @@ function Investment() {
               <ComplexStatisticsCard
                 icon="savings"
                 title="Suggested Investment Period"
-                count="2,300"
-                percentage={{
-                  color: "success",
-                  amount: "+3%",
-                  label: "than last month",
-                }}
+                count="8 years"
+                perentage={null}
               />
             </MDBox>
           </Grid>
@@ -72,12 +65,8 @@ function Investment() {
                 color="success"
                 icon="leaderboard"
                 title="Suggested Strategy"
-                count="34k"
-                percentage={{
-                  color: "success",
-                  amount: "+1%",
-                  label: "than yesterday",
-                }}
+                count="Dolar-cost Averaging"
+                perentage={null}
               />
             </MDBox>
           </Grid>
@@ -108,7 +97,7 @@ function Investment() {
           </Grid>
         </Grid>
         <Grid container spacing={3}>
-          <Grid item xs={12} md={6} lg={4}>
+          {/* <Grid item xs={12} md={6} lg={4}>
             <SimpleStatisticsCard
               title="Deposits Fund"
               count="RM230,220"
@@ -118,7 +107,19 @@ function Investment() {
                 label: "since last month",
               }}
             />
-          </Grid>
+          </Grid> */}
+          {investmentProducts.map((product) => (
+            <Grid item xs={12} md={6} lg={4}>
+              <SimpleStatisticsCard
+                title={product.name}
+                count={product.minimumInitialInvestment}
+                percentage={{
+                  color: product.oneYearReturn > 0 ? "success" : "error",
+                  amount: `${product.oneYearReturn}%`,
+                  label: "since last year",
+                }}
+              />
+            </Grid>))}
         </Grid>
       </MDBox>
       <Footer />
