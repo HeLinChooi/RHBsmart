@@ -1,13 +1,13 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
-import { Paper } from "@mui/material";
+import { Card, Paper } from "@mui/material";
 import MDBox from "components/MDBox";
 import ProfileCard from "examples/Cards/ProfileCard";
 import womenProfile from "assets/images/cropped-woman-profile.jpg";
 import TextInput from "./TextInput";
 import { MessageLeft, MessageRight } from "./Message";
 
-const MyPaper = styled(Paper)({
+const MyPaper = styled(Card)({
   width: "100%",
   // height: "100%",
   // maxWidth: "500px",
@@ -19,6 +19,7 @@ const MyPaper = styled(Paper)({
 });
 const Container = styled("div")(({ theme }) => ({
   display: "flex",
+  flexDirection: "row-reverse",
   paddingTop: "20px",
   height: "calc(100vh - 8rem)",
   [theme.breakpoints.down("md")]: {
@@ -43,8 +44,8 @@ export default function ChatRoom() {
           }}
         />
       </MDBox>
-      <MyPaper zDepth={2}>
-        <Paper
+      <MyPaper>
+        <Card
           id="style-1"
           sx={{
             width: "calc( 100% - 20px )",
@@ -52,6 +53,7 @@ export default function ChatRoom() {
             marginTop: 4,
             overflowY: "scroll",
             height: "calc( 100% - 80px )",
+            // bgColor: color
           }}
         >
           <MessageLeft
@@ -82,7 +84,7 @@ export default function ChatRoom() {
             displayName="Aaron Lee"
             avatarDisp={false}
           />
-        </Paper>
+        </Card>
         <TextInput />
       </MyPaper>
     </Container>
