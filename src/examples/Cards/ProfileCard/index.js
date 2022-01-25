@@ -41,7 +41,7 @@ function ProfileCard({ color, jobTitle, name, percentage, icon }) {
           height="4rem"
           mt={-3}
         >
-          <img src={icon} alt="profile" height="100%" />
+          <img src={icon} alt="profile" height="100%" style={{borderRadius: "0.75rem"}}/>
         </MDBox>
         <MDBox textAlign="right" lineHeight={1.25}>
           <MDTypography variant="button" fontWeight="light" color="text">

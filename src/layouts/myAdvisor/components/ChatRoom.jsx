@@ -9,7 +9,7 @@ import { MessageLeft, MessageRight } from "./Message";
 
 const MyPaper = styled(Paper)({
   width: "100%",
-  height: "100%",
+  // height: "100%",
   // maxWidth: "500px",
   maxHeight: "700px",
   display: "flex",
@@ -20,6 +20,7 @@ const MyPaper = styled(Paper)({
 const Container = styled("div")(({ theme }) => ({
   display: "flex",
   paddingTop: "20px",
+  height: "calc(100vh - 8rem)",
   [theme.breakpoints.down("md")]: {
     flexDirection: "column",
   },
@@ -53,13 +54,6 @@ export default function ChatRoom() {
             height: "calc( 100% - 80px )",
           }}
         >
-          {/* <MessageLeft
-            message="あめんぼあかいなあいうえお"
-            timestamp="MM/DD 00:00"
-            photoURL="https://lh3.googleusercontent.com/a-/AOh14Gi4vkKYlfrbJ0QLJTg_DLjcYyyK7fYoWRpz2r4s=s96-c"
-            displayName=""
-            avatarDisp
-          /> */}
           <MessageLeft
             message="Hi it's been a while not having lunch together"
             // timestamp="MM/DD 00:00"
@@ -79,6 +73,13 @@ export default function ChatRoom() {
             // timestamp="MM/DD 00:00"
             photoURL="https://lh3.googleusercontent.com/a-/AOh14Gi4vkKYlfrbJ0QLJTg_DLjcYyyK7fYoWRpz2r4s=s96-c"
             displayName="まさりぶ"
+            avatarDisp={false}
+          />
+          <MessageLeft
+            message="Great! See you on Wed afternoon 1pm, as usual at Sharon's Cafe"
+            // timestamp="MM/DD 00:00"
+            photoURL=""
+            displayName="Aaron Lee"
             avatarDisp={false}
           />
         </Paper>

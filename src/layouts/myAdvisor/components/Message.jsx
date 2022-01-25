@@ -1,6 +1,6 @@
 import React from "react";
 import { styled, useTheme } from "@mui/material/styles";
-import Avatar from "@mui/material/Avatar";
+import Typography from "@mui/material/Typography";
 import { deepOrange } from "@mui/material/colors";
 
 const BlueMessage = styled("div")({
@@ -108,7 +108,7 @@ export const MessageLeft = (props) => {
           {/* <div style={{ marginLeft: "20px" }}>{displayName}</div> */}
           <BlueMessage>
             <div>
-              <p style={{ padding: 0, margin: 0 }}>{message}</p>
+              <Typography variant="body2" style={{ padding: 0, margin: 0 }}>{message}</Typography>
             </div>
             <div
               style={{
@@ -135,7 +135,7 @@ export const MessageRight = (props) => {
   return (
     <div style={{ display: "flex", justifyContent: "flex-end" }}>
       <OrangeMessage>
-        <p style={{ padding: 0, margin: 0 }}>{message}</p>
+        <Typography variant="body2" style={{ padding: 0, margin: 0 }}>{message}</Typography>
         <MessageTimeStampRight>{timestamp}</MessageTimeStampRight>
       </OrangeMessage>
     </div>
