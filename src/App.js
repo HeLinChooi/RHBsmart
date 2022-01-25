@@ -138,7 +138,7 @@ export default function App() {
       zIndex={99}
       color="dark"
       sx={{ cursor: "pointer" }}
-      // onClick={handleConfiguratorOpen}
+    // onClick={handleConfiguratorOpen}
     >
       <Icon fontSize="small" color="inherit">
         chat
@@ -156,7 +156,7 @@ export default function App() {
               color={sidenavColor}
               brand={(transparentSidenav && !darkMode) || whiteSidenav ? brandDark : brandWhite}
               brandName="smart"
-              routes={routes}
+              routes={routes.filter((route) => route.showSideNav)}
               onMouseEnter={handleOnMouseEnter}
               onMouseLeave={handleOnMouseLeave}
             />
@@ -167,6 +167,7 @@ export default function App() {
         {layout === "vr" && <Configurator />}
         <Routes>
           {getRoutes(routes)}
+          <Route path="*" element={<Navigate to="/dashboard" />} />
           <Route path="*" element={<Navigate to="/dashboard" />} />
         </Routes>
       </ThemeProvider>
@@ -180,7 +181,7 @@ export default function App() {
             color={sidenavColor}
             brand={(transparentSidenav && !darkMode) || whiteSidenav ? brandDark : brandWhite}
             brandName="smart"
-            routes={routes}
+            routes={routes.filter((route) => route.showSideNav)}
             onMouseEnter={handleOnMouseEnter}
             onMouseLeave={handleOnMouseLeave}
           />

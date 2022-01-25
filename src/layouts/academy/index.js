@@ -1,18 +1,3 @@
-/**
-=========================================================
-* Material Dashboard 2 React - v2.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 // @mui material components
 import Grid from "@mui/material/Grid";
 
@@ -29,47 +14,101 @@ import { Divider } from "@mui/material";
 import MDButton from "components/MDButton";
 import DefaultProjectCard from "examples/Cards/ProjectCards/DefaultProjectCard";
 import academyResource from "layouts/academy/data";
+import { useEffect, useState } from "react";
 
 function Academy() {
 
-  const academyKeys = ['invest', 'loan', 'credit_card'];
+  const [investResource, setInvestResource] = useState([]);
+  const [loanResource, setLoanResource] = useState([]);
+  const [creditCardResource, setCreditCardResource] = useState([]);
+
+  useEffect(() => {
+    setInvestResource(academyResource.filter((resource) => resource.category === 'stock'))
+    setLoanResource(academyResource.filter((resource) => resource.category === 'loan'))
+    setCreditCardResource(academyResource.filter((resource) => resource.category === 'credit_card'))
+  }, [])
 
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      <MDBox pt={6} pb={3}>
-        {
-          academyKeys.map((key) => (
-            <>
-              <Grid container direction="row" justifyContent="space-between" spacing={3}>
-                <Grid item>
-                  <MDTypography variant="h4">{academyResource[key].title}</MDTypography>
-                </Grid>
-                <Grid item>
-                  <MDButton variant="text" color="info">
-                    View All
-                  </MDButton>
-                </Grid>
-              </Grid>
-              <Grid container spacing={3}>
-                {academyResource[key].resource.map((resource) => (
-                  <Grid item xs={12} md={6} lg={4}>
-                    <MDBox mb={1.5}>
-                      <DefaultProjectCard
-                        image={resource.image}
-                        label={resource.label}
-                        title={resource.title}
-                        description={resource.description}
-                        action={resource.action}
-                      />
-                    </MDBox>
-                  </Grid>
-                ))}
-              </Grid>
-              <Divider />
-            </>
-          ))
-        }
+      <MDBox pt={2} pb={3}>
+        <Grid container direction="row" justifyContent="space-between" spacing={3}>
+          <Grid item>
+            <MDTypography variant="h4">Invest 101</MDTypography>
+          </Grid>
+          <Grid item>
+            <MDButton variant="text" color="info">
+              View All
+            </MDButton>
+          </Grid>
+        </Grid>
+        <Grid container spacing={3}>
+          {investResource && investResource.map((resource) => (
+            <Grid item xs={12} md={6} lg={4}>
+              <MDBox mb={1.5}>
+                <DefaultProjectCard
+                  image={resource.image}
+                  label={resource.label}
+                  title={resource.title}
+                  description={resource.description}
+                  action={resource.action}
+                />
+              </MDBox>
+            </Grid>
+          ))}
+        </Grid>
+        <Divider />
+        <Grid container direction="row" justifyContent="space-between" spacing={3}>
+          <Grid item>
+            <MDTypography variant="h4">Loan 101</MDTypography>
+          </Grid>
+          <Grid item>
+            <MDButton variant="text" color="info">
+              View All
+            </MDButton>
+          </Grid>
+        </Grid>
+        <Grid container spacing={3}>
+          {loanResource && loanResource.map((resource) => (
+            <Grid item xs={12} md={6} lg={4}>
+              <MDBox mb={1.5}>
+                <DefaultProjectCard
+                  image={resource.image}
+                  label={resource.label}
+                  title={resource.title}
+                  description={resource.description}
+                  action={resource.action}
+                />
+              </MDBox>
+            </Grid>
+          ))}
+        </Grid>
+        <Divider />
+        <Grid container direction="row" justifyContent="space-between" spacing={3}>
+          <Grid item>
+            <MDTypography variant="h4">Credit Card 101</MDTypography>
+          </Grid>
+          <Grid item>
+            <MDButton variant="text" color="info">
+              View All
+            </MDButton>
+          </Grid>
+        </Grid>
+        <Grid container spacing={3}>
+          {creditCardResource && creditCardResource.map((resource) => (
+            <Grid item xs={12} md={6} lg={4}>
+              <MDBox mb={1.5}>
+                <DefaultProjectCard
+                  image={resource.image}
+                  label={resource.label}
+                  title={resource.title}
+                  description={resource.description}
+                  action={resource.action}
+                />
+              </MDBox>
+            </Grid>
+          ))}
+        </Grid>
       </MDBox>
       <Footer />
     </DashboardLayout>

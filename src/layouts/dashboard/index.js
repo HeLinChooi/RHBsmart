@@ -141,7 +141,7 @@ function Dashboard() {
               <br />
               <ComplexStatisticsCard
                 icon="savings"
-                title="Savings"
+                title="Net Savings"
                 count="2,300"
                 percentage={{
                   color: "success",

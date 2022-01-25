@@ -38,7 +38,6 @@ Coded by www.creative-tim.com
 // Material Dashboard 2 React layouts
 import Dashboard from "layouts/dashboard";
 import Tables from "layouts/investment";
-import Billing from "layouts/billing";
 import Academy from "layouts/academy";
 import Notifications from "layouts/myAdvisor";
 import Profile from "layouts/profile";
@@ -47,6 +46,7 @@ import Profile from "layouts/profile";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
+import AcademyDetail from "layouts/academy/academyDetail";
 
 const routes = [
   {
@@ -56,6 +56,7 @@ const routes = [
     icon: <Icon fontSize="small">dashboard</Icon>,
     route: "/dashboard",
     component: <Dashboard />,
+    showSideNav: true
   },
   {
     type: "collapse",
@@ -64,6 +65,16 @@ const routes = [
     icon: <Icon fontSize="small">trending_up</Icon>,
     route: "/investment",
     component: <Tables />,
+    showSideNav: true
+  },
+  {
+    type: "collapse",
+    name: "Academy",
+    key: "academy",
+    icon: <Icon fontSize="small">library_books</Icon>,
+    route: "/academy/detail",
+    component: <AcademyDetail />,
+    showSideNav: false
   },
   {
     type: "collapse",
@@ -72,15 +83,8 @@ const routes = [
     icon: <Icon fontSize="small">library_books</Icon>,
     route: "/academy",
     component: <Academy />,
+    showSideNav: true
   },
-  // {
-  //   type: "collapse",
-  //   name: "Billing",
-  //   key: "billing",
-  //   icon: <Icon fontSize="small">library_books</Icon>,
-  //   route: "/billing",
-  //   component: <Billing />,
-  // },
   {
     type: "collapse",
     name: "My Advisor",
@@ -88,6 +92,7 @@ const routes = [
     icon: <Icon fontSize="small">chat</Icon>,
     route: "/my-advisor",
     component: <Notifications />,
+    showSideNav: true
   },
   {
     type: "collapse",
@@ -96,6 +101,7 @@ const routes = [
     icon: <Icon fontSize="small">person</Icon>,
     route: "/profile",
     component: <Profile />,
+    showSideNav: true
   },
   // {
   //   type: "collapse",

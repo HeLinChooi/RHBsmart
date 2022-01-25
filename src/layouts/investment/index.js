@@ -65,7 +65,7 @@ function Investment() {
                 color="success"
                 icon="leaderboard"
                 title="Suggested Strategy"
-                count="Dolar-cost Averaging"
+                count="Dollar-cost Averaging"
                 perentage={null}
               />
             </MDBox>
