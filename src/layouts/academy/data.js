@@ -7,8 +7,8 @@ const academyResource =
             image: "https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
             label: "Investing 101",
             title: "A Guide to Investing vs. Trading",
-            subtitle: "The terms ‘investing’ and ‘trading’ are often used interchangeably...",
             description: "The terms ‘investing’ and ‘trading’ are often used interchangeably...",
+            content: "The terms ‘investing’ and ‘trading’ are often used interchangeably...",
             action: {
                 type: "internal",
                 route: "/academy/detail?id=aaklfnak",
@@ -23,6 +23,7 @@ const academyResource =
             label: "Investing 101",
             title: "What Is an ETF? Learn How to Trade and Invest in ETFs",
             description: "Exchange-traded funds (ETFs) have become extremely popular with traders and investors in recent years for good reason...",
+            content: "Exchange-traded funds (ETFs) have become extremely popular with traders and investors in recent years for good reason...",
             action: {
                 type: "internal",
                 route: "/academy/detail?id=afetvasf",
@@ -37,6 +38,7 @@ const academyResource =
             label: "Investing 101",
             title: "Structured Product Investments",
             description: "Structured Investment (or Structured Product) is a hybrid financial instrument whose performance is linked to the your choice of underlying asset...",
+            content: "Structured Investment (or Structured Product) is a hybrid financial instrument whose performance is linked to the your choice of underlying asset...",
             action: {
                 type: "internal",
                 route: "/academy/detail?id=rrggvvr",
@@ -52,6 +54,7 @@ const academyResource =
             label: "Loan 101",
             title: "Financial Management & Resilience Programme (URUS)",
             description: "URUS is a holistic assistance package to assist vulnerable borrowers/customers with prolonged cash flow difficulties due to COVID-19...",
+            content: "URUS is a holistic assistance package to assist vulnerable borrowers/customers with prolonged cash flow difficulties due to COVID-19...",
             action: {
                 type: "internal",
                 route: "/academy/detail?id=gdfdfd",
@@ -66,6 +69,7 @@ const academyResource =
             label: "Loan 101",
             title: "RHB Housing Loan",
             description: "Our RHB Housing Loan, with flexible options, is the key to quickly own your dream house. Get the home of your dreams and enjoy these benefits",
+            content: "Our RHB Housing Loan, with flexible options, is the key to quickly own your dream house. Get the home of your dreams and enjoy these benefits",
             action: {
                 type: "internal",
                 route: "/academy/detail?id=vadead",
@@ -80,6 +84,7 @@ const academyResource =
             label: "Loan 101",
             title: "9 Best Personal Loan Tips",
             description: "Are you contemplating taking a personal loan to fund a large payment? A personal loan can definitely help you...",
+            content: "Are you contemplating taking a personal loan to fund a large payment? A personal loan can definitely help you...",
             action: {
                 type: "internal",
                 route: "/academy/detail?id=vajiun",
@@ -95,6 +100,7 @@ const academyResource =
             label: "Credit Cards 101",
             title: "Credit Card Tips and Advice",
             description: "The terms ‘investing’ and ‘trading’ are often used interchangeably...",
+            content: "The terms ‘investing’ and ‘trading’ are often used interchangeably...",
             action: {
                 type: "internal",
                 route: "/academy/detail?id=cchjbh",
@@ -109,6 +115,7 @@ const academyResource =
             label: "Credit Cards 101",
             title: "Find & Apply for a Credit Card Online",
             description: "You know you have a great cashback credit card when you get rewarded for purchasing food and groceries online...",
+            content: "You know you have a great cashback credit card when you get rewarded for purchasing food and groceries online...",
             action: {
                 type: "internal",
                 route: "/academy/detail?id=asdava",
@@ -123,6 +130,7 @@ const academyResource =
             label: "Credit Cards 101",
             title: "Credit Card Limits: How To Manage",
             description: "Credit card limits are unique, but how to manage them isn’t...",
+            content: "Credit card limits are unique, but how to manage them isn’t...",
             action: {
                 type: "internal",
                 route: "/academy/detail?id=wwsava",

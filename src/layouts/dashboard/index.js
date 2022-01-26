@@ -37,6 +37,16 @@ import customer6CreditCardTxn from "layouts/dashboard/data/creditcard_txn_cust_i
 import Projects from "layouts/dashboard/components/Projects";
 import PieChart from "examples/Charts/PieChart";
 import { Divider } from "@mui/material";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.min.css'
+import 'swiper/swiper.min.css'
+import SwiperCore, {
+  Lazy, Pagination, Navigation
+} from 'swiper';
+
+// install Swiper modules
+SwiperCore.use([Lazy, Pagination, Navigation]);
+
 
 const merchantCategoryMap = {
   5691: 'Men and Women Clothing Stores',
@@ -117,6 +127,55 @@ function Dashboard() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
+      <Swiper
+        spaceBetween={50}
+        slidesPerView={1}
+        effect="fade"
+        navigation
+        pagination
+        lazy
+        autoplay={{
+          "delay": 3000,
+          "disableOnInteraction": true,
+          stopOnLast: true,
+        }}
+        onSlideChange={() => console.log('slide change')}
+        onSwiper={(swiper) => console.log(swiper)}
+      >
+        <SwiperSlide>
+          <MDBox container borderRadius="xl" mb={5} sx={{
+            width: '100%', height: "200px", overflow: 'hidden', backgroundImage: `url(https://images.pexels.com/photos/3401897/pexels-photo-3401897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)`,
+            backgroundSize: "cover",
+            backgroundPosition: "50%",
+          }}>
+            <iframe
+              width="auto"
+              height="100%"
+              src={`https://www.youtube.com/embed/${'7EjWmpvUZFA'}?autoplay=0`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title="Embedded youtube"
+            />
+          </MDBox></SwiperSlide>
+        <SwiperSlide>
+          <MDBox container borderRadius="xl" mb={5} sx={{
+            width: '100%', height: "200px", overflow: 'hidden', backgroundImage: `url(https://images.pexels.com/photos/3401897/pexels-photo-3401897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)`,
+            backgroundSize: "cover",
+            backgroundPosition: "50%",
+          }}>
+            <iframe
+              loading="lazy"
+              width="auto"
+              height="100%"
+              src={`https://www.youtube.com/embed/${'7EjWmpvUZFA'}?autoplay=1`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title="Embedded youtube"
+            />
+          </MDBox></SwiperSlide>
+      </Swiper>
       <MDBox py={3}>
         <Grid container spacing={3}>
           <Grid item xs={12} md={6} lg={4} mb={1.5}>

@@ -44,7 +44,7 @@ function Academy() {
         </Grid>
         <Grid container spacing={3}>
           {investResource && investResource.map((resource) => (
-            <Grid item xs={12} md={6} lg={4}>
+            <Grid key={resource.id} item xs={12} md={6} lg={4}>
               <MDBox mb={1.5}>
                 <DefaultProjectCard
                   image={resource.image}

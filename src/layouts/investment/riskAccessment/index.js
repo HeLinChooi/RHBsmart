@@ -1,9 +1,7 @@
-import { FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup } from '@mui/material';
-import MDBox from 'components/MDBox';
+import { Card, FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup } from '@mui/material';
 import MDButton from 'components/MDButton';
 import MDTypography from 'components/MDTypography';
-import { submitRiskAssessment } from 'context/general';
-import { useGeneralContextController } from 'context/general';
+import { useGeneralContextController, submitRiskAssessment } from 'context/general';
 import DashboardLayout from 'examples/LayoutContainers/DashboardLayout';
 import DashboardNavbar from 'examples/Navbars/DashboardNavbar';
 import React, { useState } from 'react';
@@ -17,10 +15,7 @@ function RiskAccessment() {
     const [, dispatch] = useGeneralContextController();
 
     const selectAnswer = (key, value) => {
-        setAnswers((prevState) => {
-            prevState[key] = value;
-            return JSON.parse(JSON.stringify(prevState));
-        })
+        setAnswers((prevState) => ({ ...prevState, [key]: value }))
     }
 
     const handleSubmit = () => {
@@ -31,7 +26,7 @@ function RiskAccessment() {
     return (
         <DashboardLayout>
             <DashboardNavbar />
-            <MDBox bgColor="white" borderRadius="lg" p={3} mb={8}>
+            <Card borderRadius="lg" sx={{ py: 3, px: 5, mb: 8 }} p={3} mb={8}>
                 <MDTypography variant="h5" pb={2}>Risk Accessment Form</MDTypography>
                 {riskAccessmentQuestions.map((ques, index) => (
                     <>
@@ -51,7 +46,6 @@ function RiskAccessment() {
                                 ))}
                             </RadioGroup>
                         </FormControl>
-                        <br />
                     </>
                 ))}
                 <Grid
@@ -62,7 +56,7 @@ function RiskAccessment() {
                 >
                     <MDButton variant="gradient" color="info" onClick={handleSubmit}>Submit</MDButton>
                 </Grid>
-            </MDBox>
+            </Card>
         </DashboardLayout>
     );
 }
