@@ -26,7 +26,6 @@ import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 import { useNavigate } from "react-router-dom";
 import { useGeneralContextController } from "context/general";
-import { useEffect } from "react";
 
 import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatisticsCard";
 import { Divider } from "@mui/material";
@@ -39,31 +38,26 @@ function Investment() {
   const [controller] = useGeneralContextController();
   const { riskAssessmentDone } = controller;
 
-  useEffect(() => {
-    if (!riskAssessmentDone) {
-      navigate('/investment/risk-assessment')
-    }
-  }, [riskAssessmentDone])
-
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      <MDBox pb={3}>
-        <MDBox container borderRadius="xl" mt={1} mb={5} sx={{
-          width: '100%', height: "200px", overflow: 'hidden', backgroundImage: `url(https://images.pexels.com/photos/3401897/pexels-photo-3401897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)`,
-          backgroundSize: "cover",
-          backgroundPosition: "50%",
-        }}>
-          <Grid
-            container
-            direction="row"
-            justifyContent="flex-end"
-            alignItems="center"
-            p={3}
-          >
-            <MDButton variant="gradient" color="info" onClick={() => navigate('/investment/risk-assessment')}>Take Risk Assessment</MDButton>
-          </Grid>
-        </MDBox>
+      <MDBox mt={3} pb={3}>
+        {!riskAssessmentDone &&
+          <MDBox container borderRadius="xl" mb={5} sx={{
+            width: '100%', height: "200px", overflow: 'hidden', backgroundImage: `url(https://images.pexels.com/photos/3401897/pexels-photo-3401897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)`,
+            backgroundSize: "cover",
+            backgroundPosition: "50%",
+          }}>
+            <Grid
+              container
+              direction="row"
+              justifyContent="flex-end"
+              alignItems="center"
+              p={3}
+            >
+              <MDButton variant="gradient" color="info" onClick={() => navigate('/investment/risk-assessment')}>Take Risk Assessment</MDButton>
+            </Grid>
+          </MDBox>}
         <Grid container spacing={3}>
           <Grid item xs={12} md={6} lg={4}>
             <MDBox mb={1.5}>
