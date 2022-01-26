@@ -26,7 +26,7 @@ import MDTypography from "components/MDTypography";
 
 function ProfileCard({ color, jobTitle, name, percentage, icon }) {
   return (
-    <Card sx={{ marginBottom: { xs: 2 }, marginRight: { xs: 0, md: 2 } }}>
+    <Card sx={{ marginBottom: { xs: 2 }, marginLeft: { xs: 0, md: 2 } }}>
       <MDBox display="flex" justifyContent="space-between" pt={1} px={2}>
         <MDBox
           variant="gradient"

@@ -93,26 +93,20 @@ function Dashboard() {
     arr.sort(compare);
     // console.log(arr.map(item => item.txn_date));
     setTxnArr(arr);
-    console.log(arr[0]);
+    // console.log(arr[0]);
     // calculate top 5 spending categories as well
     const arrCopy = arr.map(item => item);
     const spendingCategories = groupBy(arrCopy, "MERCH_CATEGORY");
-    console.log(spendingCategories)
+    // console.log(spendingCategories)
     const categoriesToTotalSpend = []
     Object.keys(spendingCategories).forEach(categoryKey => {
-      const total = spendingCategories[categoryKey].map(item => item.TRANSACTION_AMT).reduce((acc, cur) => {
-        // const curTxnAmt = cur.TRANSACTION_AMT ? cur.TRANSACTION_AMT : 0
-        // console.log(curTxnAmt)
-        // const ret = acc.TRANSACTION_AMT + curTxnAmt;
-        console.log("");
-        return acc + cur
-      }, 0)
+      const total = spendingCategories[categoryKey].map(item => item.TRANSACTION_AMT).reduce((acc, cur) => acc + cur, 0)
       categoriesToTotalSpend.push({ label: categoryKey, total })
     })
-    console.log('categoriesToTotalSpend', categoriesToTotalSpend)
+    // console.log('categoriesToTotalSpend', categoriesToTotalSpend)
     // sort
     categoriesToTotalSpend.sort(compareTotalSpending);
-    console.log(categoriesToTotalSpend)
+    // console.log(categoriesToTotalSpend)
     setTopSpendings(categoriesToTotalSpend)
   };
 
