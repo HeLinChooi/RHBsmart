@@ -6,8 +6,6 @@ import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 
-import { Divider } from "@mui/material";
-
 import academyResource from "layouts/academy/data";
 import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";

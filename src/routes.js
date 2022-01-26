@@ -47,6 +47,7 @@ import Profile from "layouts/profile";
 // @mui icons
 import Icon from "@mui/material/Icon";
 import AcademyDetail from "layouts/academy/academyDetail";
+import RiskAccessment from "layouts/investment/riskAccessment";
 
 const routes = [
   {
@@ -57,6 +58,15 @@ const routes = [
     route: "/dashboard",
     component: <Dashboard />,
     showSideNav: true
+  },
+  {
+    type: "collapse",
+    name: "Investment",
+    key: "investment",
+    icon: <Icon fontSize="small">trending_up</Icon>,
+    route: "/investment/risk-assessment",
+    component: <RiskAccessment />,
+    showSideNav: false
   },
   {
     type: "collapse",

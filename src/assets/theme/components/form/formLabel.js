@@ -16,12 +16,15 @@ Coded by www.creative-tim.com
 // Material Dashboard 2 PRO React base styles
 import colors from "assets/theme/base/colors";
 
-const { text } = colors;
+const { text, info } = colors;
 
 export default {
   styleOverrides: {
     root: {
       color: text.main,
+      "&.Mui-focused": {
+        color: info.main,
+      },
     },
   },
 };
