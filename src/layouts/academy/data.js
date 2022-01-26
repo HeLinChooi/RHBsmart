@@ -8,7 +8,8 @@ const academyResource =
             label: "Investing 101",
             title: "A Guide to Investing vs. Trading",
             description: "The terms ‘investing’ and ‘trading’ are often used interchangeably...",
-            content: "The terms ‘investing’ and ‘trading’ are often used interchangeably...",
+            content: `The terms ‘investing’ and ‘trading’ are 
+            often used interchangeably...`,
             action: {
                 type: "internal",
                 route: "/academy/detail?id=aaklfnak",
