@@ -72,7 +72,6 @@ ProgressInfoCard.propTypes = {
   title: PropTypes.string.isRequired,
   count: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   target: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  percentage: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   // percentage: PropTypes.shape({
   //   color: PropTypes.oneOf([
   //     "primary",
