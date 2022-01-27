@@ -34,6 +34,7 @@ import reportsLineChartData from "layouts/dashboard/data/reportsLineChartData";
 import customer6CreditCardTxn from "layouts/dashboard/data/creditcard_txn_cust_id_6.json";
 
 // Dashboard components
+import ProgressInfoCard from "layouts/dashboard/components/ProgressInfoCard";
 import Projects from "layouts/dashboard/components/Projects";
 import PieChart from "examples/Charts/PieChart";
 import { Divider } from "@mui/material";
@@ -43,6 +44,12 @@ import 'swiper/swiper.min.css'
 import SwiperCore, {
   Lazy, Pagination, Navigation
 } from 'swiper';
+import MDTypography from "components/MDTypography";
+
+import AchievementBannerSrc from "assets/images/Achievement.png"
+import PromotionBannerBg from "assets/images/PromotionBannerBg.png"
+import Helin from "assets/images/Helin.png"
+import MDAvatar from "components/MDAvatar";
 
 // install Swiper modules
 SwiperCore.use([Lazy, Pagination, Navigation]);
@@ -143,40 +150,55 @@ function Dashboard() {
         onSwiper={(swiper) => console.log(swiper)}
       >
         <SwiperSlide>
-          <MDBox container borderRadius="xl" mb={5} sx={{
-            width: '100%', height: "200px", overflow: 'hidden', backgroundImage: `url(https://images.pexels.com/photos/3401897/pexels-photo-3401897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)`,
+          <MDBox container display="flex" borderRadius="xl" alignItems="center" mb={5} sx={{
+            width: '100%', height: "220px", overflow: 'hidden', backgroundImage: `url(${AchievementBannerSrc})`,
             backgroundSize: "cover",
             backgroundPosition: "50%",
           }}>
-            <iframe
-              width="auto"
-              height="100%"
-              src={`https://www.youtube.com/embed/${'7EjWmpvUZFA'}?autoplay=0`}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title="Embedded youtube"
-            />
-          </MDBox></SwiperSlide>
+            <Grid container spacing={4} px={2}>
+              <Grid item sm={0} md={3} display={{ xs: 'none', md: 'flex' }} justifyContent="flex-end" >
+                <MDAvatar src={Helin} alt="Avatar" size="xxl" />
+              </Grid>
+              <Grid item sm={12} md={9} display='flex' flexDirection="column" justifyContent="center">
+                <MDTypography variant="h3" color="warning">Congratulations, Richard ! </MDTypography>
+                <MDTypography color="white">Your net savings have surpassed 51.1% users last month</MDTypography>
+              </Grid>
+            </Grid>
+          </MDBox>
+        </SwiperSlide>
         <SwiperSlide>
           <MDBox container borderRadius="xl" mb={5} sx={{
-            width: '100%', height: "200px", overflow: 'hidden', backgroundImage: `url(https://images.pexels.com/photos/3401897/pexels-photo-3401897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)`,
+            width: '100%', height: "220px", overflow: 'hidden', backgroundImage: `url(${PromotionBannerBg})`,
             backgroundSize: "cover",
             backgroundPosition: "50%",
           }}>
-            <iframe
-              loading="lazy"
-              width="auto"
-              height="100%"
-              src={`https://www.youtube.com/embed/${'7EjWmpvUZFA'}?autoplay=1`}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title="Embedded youtube"
-            />
-          </MDBox></SwiperSlide>
+            <MDBox px={3} borderRadius="xl" sx={{ overflow: 'hidden', height: '100%' }}>
+              <iframe
+                loading="lazy"
+                width="auto"
+                height="100%"
+                src={`https://www.youtube.com/embed/${'7EjWmpvUZFA'}?autoplay=1`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title="Embedded youtube"
+              />
+            </MDBox>
+          </MDBox>
+        </SwiperSlide>
       </Swiper>
       <MDBox py={3}>
+        <Grid container spacing={3} mb={4}>
+          <Grid item xs={12} md={6} lg={4}>
+            <ProgressInfoCard title="Emergency Fund" count="3000" target="12000" color="info" />
+          </Grid>
+          <Grid item xs={12} md={6} lg={4}>
+            <ProgressInfoCard title="Emergency Fund" count="3000" target="12000" color="success" />
+          </Grid>
+          <Grid item xs={12} md={6} lg={4}>
+            <ProgressInfoCard title="Emergency Fund" count="3000" target="12000" color="warning" />
+          </Grid>
+        </Grid>
         <Grid container spacing={3}>
           <Grid item xs={12} md={6} lg={4} mb={1.5}>
             <MDBox mb={1.5}>
