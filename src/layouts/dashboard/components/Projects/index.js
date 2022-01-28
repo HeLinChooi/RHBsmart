@@ -12,6 +12,8 @@ Coded by www.creative-tim.com
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
+// prop-types is a library for typechecking of props
+import PropTypes from "prop-types";
 // @mui material components
 import Card from "@mui/material/Card";
 
@@ -64,7 +66,7 @@ function Projects({ txnArr }) {
 
   return (
     <Card>
-      <MDBox display="flex" justifyContent="space-between" alignItems="center" p={3}>
+      <MDBox display="flex" justifyContent="space-between" alignItems="center" p={3} style={{flexWrap: "wrap"}}>
         <MDBox>
           <MDTypography variant="h6" gutterBottom>
             Transactions
@@ -90,5 +92,10 @@ function Projects({ txnArr }) {
     </Card>
   );
 }
+
+// Typechecking props for the ComplexStatisticsCard
+Projects.propTypes = {
+  txnArr: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export default Projects;

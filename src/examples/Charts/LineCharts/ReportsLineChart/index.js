@@ -23,8 +23,6 @@ import { Line } from "react-chartjs-2";
 
 // @mui material components
 import Card from "@mui/material/Card";
-import Divider from "@mui/material/Divider";
-import Icon from "@mui/material/Icon";
 
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
@@ -33,7 +31,7 @@ import MDTypography from "components/MDTypography";
 // ReportsLineChart configurations
 import configs from "examples/Charts/LineCharts/ReportsLineChart/configs";
 
-function ReportsLineChart({ color, title, description, date, chart }) {
+function ReportsLineChart({ color, title, description, chart }) {
   const { data, options } = configs(chart.labels || [], chart.datasets || {});
 
   return (
@@ -79,7 +77,6 @@ ReportsLineChart.propTypes = {
   color: PropTypes.oneOf(["primary", "secondary", "info", "success", "warning", "error", "dark"]),
   title: PropTypes.string.isRequired,
   description: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  date: PropTypes.string.isRequired,
   chart: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.array, PropTypes.object])).isRequired,
 };
 

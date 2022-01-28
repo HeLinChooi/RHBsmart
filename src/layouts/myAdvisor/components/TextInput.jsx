@@ -13,14 +13,14 @@ const MyForm = styled("form")(({ theme }) => ({
 
 const TextInput = () => (
   <>
-    <MyForm noValidate autoComplete="off">
+    <MyForm noValidate autoComplete="off" onSubmit={e => e.preventDefault()}>
       <TextField
         id="standard-text"
         label="Your Message"
         sx={{ width: "100%" }}
       // margin="normal"
       />
-      <Button variant="contained" color="primary">
+      <Button variant="contained" color="primary" onClick={(e) => e.preventDefault()}>
         <SendIcon color="white" />
       </Button>
     </MyForm>

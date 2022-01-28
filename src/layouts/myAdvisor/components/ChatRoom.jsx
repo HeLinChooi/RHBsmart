@@ -1,6 +1,6 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
-import { Card, Paper } from "@mui/material";
+import { Card } from "@mui/material";
 import MDBox from "components/MDBox";
 import ProfileCard from "examples/Cards/ProfileCard";
 import womenProfile from "assets/images/cropped-woman-profile.jpg";
