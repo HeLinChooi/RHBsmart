@@ -34,7 +34,7 @@ function Academy() {
       <MDBox pt={2} pb={3}>
         <Grid container direction="row" justifyContent="space-between" spacing={3}>
           <Grid item>
-            <MDTypography variant="h4">Invest 101</MDTypography>
+            <MDTypography variant="h4">Investing 101</MDTypography>
           </Grid>
           <Grid item>
             <MDButton variant="text" color="info">

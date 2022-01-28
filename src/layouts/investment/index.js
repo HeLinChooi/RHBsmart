@@ -32,6 +32,7 @@ import { Divider } from "@mui/material";
 import SimpleStatisticsCard from "examples/Cards/StatisticsCards/SimpleStatisticsCard";
 import MDButton from "components/MDButton";
 import investmentProducts from "./data/investmentProducts";
+import riskAssessmentBannerBg from "assets/images/riskAssessmentBannerBg.png";
 
 function Investment() {
   const navigate = useNavigate();
@@ -44,17 +45,18 @@ function Investment() {
       <MDBox mt={3} pb={3}>
         {!riskAssessmentDone &&
           <MDBox container borderRadius="xl" mb={5} sx={{
-            width: '100%', height: "200px", overflow: 'hidden', backgroundImage: `url(https://images.pexels.com/photos/3401897/pexels-photo-3401897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)`,
+            width: '100%', height: "200px", overflow: 'hidden', backgroundImage: `url(${riskAssessmentBannerBg})`,
             backgroundSize: "cover",
             backgroundPosition: "50%",
           }}>
             <Grid
               container
               direction="row"
-              justifyContent="flex-end"
-              alignItems="center"
+              justifyContent="space-between"
+              alignItems="space-between"
               p={3}
             >
+              <MDTypography variant="h3">Please take your 2022 risk assessment!</MDTypography>
               <MDButton variant="gradient" color="info" onClick={() => navigate('/investment/risk-assessment')}>Take Risk Assessment</MDButton>
             </Grid>
           </MDBox>}

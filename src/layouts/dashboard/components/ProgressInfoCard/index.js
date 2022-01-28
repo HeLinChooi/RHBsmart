@@ -8,6 +8,7 @@ import Card from "@mui/material/Card";
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import { useEffect, useState } from "react";
+import MDButton from "components/MDButton";
 
 function ProgressInfoCard({ title, count, countStr, color, target, targetStr }) {
   const [percentage, setPercentage] = useState(100);
@@ -17,8 +18,8 @@ function ProgressInfoCard({ title, count, countStr, color, target, targetStr }) 
   }, [])
 
   return (
-    <Card px={2}>
-      <MDBox display="flex" justifyContent="space-between" pt={1} px={2}>
+    <Card sx={{ p: 2, pt: 0 }}>
+      <MDBox display="flex" justifyContent="space-between" pt={1}>
         <MDBox
           variant="gradient"
           bgColor={color}
@@ -41,13 +42,21 @@ function ProgressInfoCard({ title, count, countStr, color, target, targetStr }) 
           <MDTypography variant="h4">{targetStr}</MDTypography>
         </MDBox>
       </MDBox>
-      <MDBox borderRadius="lg" m={2} sx={{ background: '#f0f2f5' }}>
+      <MDBox borderRadius="lg" my={2} sx={{ background: '#f0f2f5' }}>
         {/* Progress bar */}
         <MDBox display="flex" justifyContent="center" borderRadius="lg" bgColor={color}
           sx={{ overflow: 'hidden', width: `${percentage}%` }}>
           <small style={{ color: 'white' }}>{countStr ? countStr : count}</small>
         </MDBox>
       </MDBox>
+      <MDButton
+        variant="outlined"
+        size="small"
+        color={color}
+        sx={{ width: '100%' }}
+      >
+        Learn More
+      </MDButton>
     </Card >
   );
 }

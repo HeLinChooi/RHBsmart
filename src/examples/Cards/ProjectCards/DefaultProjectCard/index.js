@@ -116,6 +116,7 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
               variant="outlined"
               size="small"
               color={action.color}
+              sx={{ width: '100%' }}
             >
               {action.label}
             </MDButton>
@@ -128,6 +129,7 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
               variant="outlined"
               size="small"
               color={action.color}
+              sx={{ width: '100%' }}
             >
               {action.label}
             </MDButton>
