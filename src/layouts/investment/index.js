@@ -43,7 +43,7 @@ function Investment() {
     <DashboardLayout>
       <DashboardNavbar />
       <MDBox mt={3} pb={3}>
-        {!riskAssessmentDone &&
+        {!riskAssessmentDone ?
           <MDBox container borderRadius="xl" mb={5} sx={{
             width: '100%', height: "200px", overflow: 'hidden', backgroundImage: `url(${riskAssessmentBannerBg})`,
             backgroundSize: "cover",
@@ -59,41 +59,42 @@ function Investment() {
               <MDTypography variant="h3">Please take your 2022 risk assessment!</MDTypography>
               <MDButton variant="gradient" color="info" onClick={() => navigate('/investment/risk-assessment')}>Take Risk Assessment</MDButton>
             </Grid>
-          </MDBox>}
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={6} lg={4}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                color="dark"
-                icon="error"
-                title="Risk Level"
-                count="Low"
-                perentage={null}
-              />
-            </MDBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={4}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                icon="savings"
-                title="Suggested Investment Period"
-                count="8 years"
-                perentage={null}
-              />
-            </MDBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={4}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                color="success"
-                icon="leaderboard"
-                title="Suggested Strategy"
-                count="Dollar-cost Averaging"
-                perentage={null}
-              />
-            </MDBox>
-          </Grid>
-          {/* <Grid item xs={12} md={6} lg={3}>
+          </MDBox> :
+          <>
+            <Grid container spacing={3}>
+              <Grid item xs={12} md={6} lg={4}>
+                <MDBox mb={1.5}>
+                  <ComplexStatisticsCard
+                    color="dark"
+                    icon="error"
+                    title="Risk Level"
+                    count="Low"
+                    perentage={null}
+                  />
+                </MDBox>
+              </Grid>
+              <Grid item xs={12} md={6} lg={4}>
+                <MDBox mb={1.5}>
+                  <ComplexStatisticsCard
+                    icon="savings"
+                    title="Suggested Investment Period"
+                    count="8 years"
+                    perentage={null}
+                  />
+                </MDBox>
+              </Grid>
+              <Grid item xs={12} md={6} lg={4}>
+                <MDBox mb={1.5}>
+                  <ComplexStatisticsCard
+                    color="success"
+                    icon="leaderboard"
+                    title="Suggested Strategy"
+                    count="Dollar-cost Averaging"
+                    perentage={null}
+                  />
+                </MDBox>
+              </Grid>
+              {/* <Grid item xs={12} md={6} lg={3}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 color="primary"
@@ -108,19 +109,19 @@ function Investment() {
               />
             </MDBox>
           </Grid> */}
-        </Grid>
-        <Divider />
-        <Grid container direction="row"
-          justifyContent="space-between" spacing={3}>
-          <Grid item>
-            <MDTypography>Suggested Products</MDTypography>
-          </Grid>
-          <Grid item>
-            <MDButton variant="text" color="info">View All</MDButton>
-          </Grid>
-        </Grid>
-        <Grid container spacing={3}>
-          {/* <Grid item xs={12} md={6} lg={4}>
+            </Grid>
+            <Divider />
+            <Grid container direction="row"
+              justifyContent="space-between" spacing={3}>
+              <Grid item>
+                <MDTypography>Suggested Products</MDTypography>
+              </Grid>
+              <Grid item>
+                <MDButton variant="text" color="info">View All</MDButton>
+              </Grid>
+            </Grid>
+            <Grid container spacing={3}>
+              {/* <Grid item xs={12} md={6} lg={4}>
             <SimpleStatisticsCard
               title="Deposits Fund"
               count="RM230,220"
@@ -131,19 +132,20 @@ function Investment() {
               }}
             />
           </Grid> */}
-          {investmentProducts.map((product) => (
-            <Grid item xs={12} md={6} lg={4}>
-              <SimpleStatisticsCard
-                title={product.name}
-                count={product.minimumInitialInvestment}
-                percentage={{
-                  color: product.oneYearReturn > 0 ? "success" : "error",
-                  amount: `${product.oneYearReturn}%`,
-                  label: "since last year",
-                }}
-              />
-            </Grid>))}
-        </Grid>
+              {investmentProducts.map((product) => (
+                <Grid item xs={12} md={6} lg={4}>
+                  <SimpleStatisticsCard
+                    title={product.name}
+                    count={product.minimumInitialInvestment}
+                    percentage={{
+                      color: product.oneYearReturn > 0 ? "success" : "error",
+                      amount: `${product.oneYearReturn}%`,
+                      label: "since last year",
+                    }}
+                  />
+                </Grid>))}
+            </Grid>
+          </>}
       </MDBox>
       <Footer />
     </DashboardLayout>
