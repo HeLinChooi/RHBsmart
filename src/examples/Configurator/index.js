@@ -42,7 +42,7 @@ function Configurator() {
     fixedNavbar,
     darkMode,
   } = controller;
-  const [disabled, setDisabled] = useState(false);
+  const [, setDisabled] = useState(false);
 
   // Use the useEffect hook to change the button state for the sidenav type based on window size.
   useEffect(() => {

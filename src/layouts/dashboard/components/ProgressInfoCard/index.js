@@ -45,7 +45,7 @@ function ProgressInfoCard({ title, count, countStr, color, target, targetStr }) 
         {/* Progress bar */}
         <MDBox display="flex" justifyContent="center" borderRadius="lg" bgColor={color}
           sx={{ overflow: 'hidden', width: `${percentage}%` }}>
-          <small style={{ color: 'white' }}>{countStr ? countStr : count}</small>
+          <small style={{ color: 'white' }}>{countStr || count}</small>
         </MDBox>
       </MDBox>
     </Card >
@@ -70,6 +70,8 @@ ProgressInfoCard.propTypes = {
     "dark",
   ]),
   title: PropTypes.string.isRequired,
+  countStr: PropTypes.string.isRequired,
+  targetStr: PropTypes.string.isRequired,
   count: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   target: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   // percentage: PropTypes.shape({

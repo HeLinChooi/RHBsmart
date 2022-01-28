@@ -1,7 +1,7 @@
 import React from "react";
-import { styled, useTheme } from "@mui/material/styles";
+import PropTypes from "prop-types";
+import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
-import { deepOrange } from "@mui/material/colors";
 
 const BlueMessage = styled("div")({
   position: "relative",
@@ -86,11 +86,7 @@ const MessageTimeStampRight = styled("div")({
 
 // avatarが左にあるメッセージ（他人）
 export const MessageLeft = (props) => {
-  const message = props.message ? props.message : "no message";
-  const timestamp = props.timestamp ? props.timestamp : "";
-  const photoURL = props.photoURL ? props.photoURL : "dummy.js";
-  const displayName = props.displayName ? props.displayName : "名無しさん";
-  const theme = useTheme();
+  const { message, timestamp } = props;
   return (
     <>
       <div style={{ display: "flex" }}>
@@ -108,7 +104,7 @@ export const MessageLeft = (props) => {
           {/* <div style={{ marginLeft: "20px" }}>{displayName}</div> */}
           <BlueMessage>
             <div>
-              <Typography variant="body2" style={{ padding: 0, margin: 0 }}>{message}</Typography>
+              <Typography variant="body2" style={{ padding: 0, margin: 0 }}>{message || "no message"}</Typography>
             </div>
             <div
               style={{
@@ -120,7 +116,7 @@ export const MessageLeft = (props) => {
                 right: "5px",
               }}
             >
-              {timestamp}
+              {timestamp || ""}
             </div>
           </BlueMessage>
         </div>
@@ -128,10 +124,14 @@ export const MessageLeft = (props) => {
     </>
   );
 };
+// Typechecking props for the ComplexStatisticsCard
+MessageLeft.propTypes = {
+  message: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  timestamp: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+};
 // avatarが右にあるメッセージ（自分）
 export const MessageRight = (props) => {
-  const message = props.message ? props.message : "no message";
-  const timestamp = props.timestamp ? props.timestamp : "";
+  const { message, timestamp } = props;
   return (
     <div style={{ display: "flex", justifyContent: "flex-end" }}>
       <OrangeMessage>
@@ -140,4 +140,8 @@ export const MessageRight = (props) => {
       </OrangeMessage>
     </div>
   );
+};
+MessageRight.propTypes = {
+  message: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  timestamp: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
