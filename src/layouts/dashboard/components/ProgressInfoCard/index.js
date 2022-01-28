@@ -9,7 +9,7 @@ import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import { useEffect, useState } from "react";
 
-function ProgressInfoCard({ title, count, color, target }) {
+function ProgressInfoCard({ title, count, countStr, color, target, targetStr }) {
   const [percentage, setPercentage] = useState(100);
 
   useEffect(() => {
@@ -38,14 +38,14 @@ function ProgressInfoCard({ title, count, color, target }) {
           <MDTypography variant="button" fontWeight="light" color="text">
             {title}
           </MDTypography>
-          <MDTypography variant="h4">{`RM ${target}`}</MDTypography>
+          <MDTypography variant="h4">{targetStr}</MDTypography>
         </MDBox>
       </MDBox>
       <MDBox borderRadius="lg" m={2} sx={{ background: '#f0f2f5' }}>
         {/* Progress bar */}
         <MDBox display="flex" justifyContent="center" borderRadius="lg" bgColor={color}
           sx={{ overflow: 'hidden', width: `${percentage}%` }}>
-          <small style={{ color: 'white' }}>{count}</small>
+          <small style={{ color: 'white' }}>{countStr ? countStr : count}</small>
         </MDBox>
       </MDBox>
     </Card >
