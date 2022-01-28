@@ -193,10 +193,10 @@ function Dashboard() {
             <ProgressInfoCard title="Financial Health Score" count="70" countStr="70%" target="100" targetStr="100%" color="warning" />
           </Grid>
           <Grid item xs={12} md={6} lg={4}>
-            <ProgressInfoCard title="Emergency Fund" count="3000" target="12000" targetStr="RM 12000" color="info" />
+            <ProgressInfoCard title="Emergency Fund" count="3000" target="12000" targetStr="RM 12000" color="error" />
           </Grid>
           <Grid item xs={12} md={6} lg={4}>
-            <ProgressInfoCard title="Debt Servicing ratio" count="2000" target="3000" targetStr="RM 3000" color="success" />
+            <ProgressInfoCard title="Debt Servicing ratio" count="2000" target="6000" targetStr="RM 3000" color="success" />
           </Grid>
         </Grid>
         <Grid container spacing={3}>
