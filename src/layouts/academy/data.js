@@ -258,6 +258,48 @@ const academyResource =
                 color: "info",
                 label: "view article",
             }
+        },
+        {
+            id: 'emsava',
+            category: 'emergency_fund',
+            image: "https://images.pexels.com/photos/5699482/pexels-photo-5699482.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            label: "Financial 101",
+            title: "Emergency Fund",
+            description: "Credit card limits are unique, but how to manage them isn’t...",
+            content: `<b>What are emergency funds for?</b><br>
+            An emergency fund is a stash of money set aside to cover the financial surprises life throws your way. These unexpected events can be stressful and costly.<br><br>
+            
+            <b>Here are some of the top emergencies people face:</b>
+            <br>
+            1. Job loss.<br>
+            2. Medical or dental emergency.<br>
+            3. Unexpected home repairs.<br>
+            4. Car troubles.<br>
+            5. Unplanned travel expenses.<br><br>
+
+            <b>3 benefits of having emergency money</b><br>
+Aside from financial stability, there are other pros to having an emergency reserve of cash.<br>
+            1. It helps keep your stress level down.<br>
+            It's no surprise that when life presents an emergency, it threatens your financial well-being and causes stress. If you're living without a safety net, you're living on the "financial" edge—hoping to get by without running into a crisis.
+
+            Being prepared with an emergency fund gives you confidence that you can tackle any of life's unexpected events without adding money worries to your list.<br><br>
+            2. It keeps you from spending on a whim.<br>
+            You've heard the saying "out of sight, out of mind." That's the best way to store your emergency money. If the cash is only as far away as your closest debit card, you may be tempted to use it for something frivolous like a designer cocktail dress or big-screen TV—not exactly an emergency.
+
+            Keeping the money out of your immediate reach means you can't spend it on a whim, no matter how much you'd like to.
+            
+            And by putting it in a separate account, you'll know exactly how much you have—and how much you may still need to save.<br><br>
+
+            3. It keeps you from making bad financial decisions.<br>
+            There may be other ways you can quickly access cash, like borrowing, but at what cost? Interest, fees, and penalties are just some of the drawbacks.<br><br>
+            <a href="/">Avoid these 5 ways to pay for emergencies</a>
+           `,
+            action: {
+                type: "internal",
+                route: "/academy/detail?id=emsava",
+                color: "info",
+                label: "view article",
+            }
         }
     ]
 

@@ -1,6 +1,6 @@
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
-
+import { useNavigate } from "react-router-dom";
 // @mui material components
 import Card from "@mui/material/Card";
 
@@ -10,9 +10,9 @@ import MDTypography from "components/MDTypography";
 import { useEffect, useState } from "react";
 import MDButton from "components/MDButton";
 
-function ProgressInfoCard({ title, count, countStr, color, target, targetStr }) {
+function ProgressInfoCard({ title, count, countStr, color, target, targetStr, action }) {
   const [percentage, setPercentage] = useState(100);
-
+  const navigate = useNavigate();
   useEffect(() => {
     setPercentage(Math.round(count / target * 100));
   }, [])
@@ -54,6 +54,7 @@ function ProgressInfoCard({ title, count, countStr, color, target, targetStr }) 
         size="small"
         color={color}
         sx={{ width: '100%' }}
+        onClick={() => navigate(action)}
       >
         Learn More
       </MDButton>
@@ -81,6 +82,7 @@ ProgressInfoCard.propTypes = {
   title: PropTypes.string.isRequired,
   countStr: PropTypes.string.isRequired,
   targetStr: PropTypes.string.isRequired,
+  action: PropTypes.string.isRequired,
   count: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   target: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   // percentage: PropTypes.shape({

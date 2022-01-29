@@ -191,13 +191,13 @@ function Dashboard() {
       <MDBox py={3}>
         <Grid container spacing={3} mb={4}>
           <Grid item xs={12} md={6} lg={4}>
-            <ProgressInfoCard title="Financial Health Score" count="70" countStr="70%" target="100" targetStr="100%" color="warning" />
+            <ProgressInfoCard title="Financial Health Score" count="70" countStr="70%" target="100" targetStr="100%" color="warning" action="/"/>
           </Grid>
           <Grid item xs={12} md={6} lg={4}>
-            <ProgressInfoCard title="Emergency Fund" count="3000" target="12000" targetStr="RM 12000" color="primary" />
+            <ProgressInfoCard title="Emergency Fund" count="3000" target="12000" targetStr="RM 12000" color="primary" action="/academy/detail?id=emsava"/>
           </Grid>
           <Grid item xs={12} md={6} lg={4}>
-            <ProgressInfoCard title="Debt Servicing ratio" count="2000" target="3000" targetStr="RM 3000" color="success" />
+            <ProgressInfoCard title="Debt Servicing ratio" count="2000" target="3000" targetStr="RM 3000" color="success" action="/"/>
           </Grid>
         </Grid>
         <Grid container spacing={3}>

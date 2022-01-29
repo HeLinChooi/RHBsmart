@@ -33,7 +33,7 @@ function AcademyDetail() {
                 backgroundSize: "cover",
                 backgroundPosition: "50%",
             }} />
-            <MDTypography variant="body1">{content?.description}</MDTypography>
+            {/* <MDTypography variant="body1">{content?.description}</MDTypography> */}
             {/* <MDTypography variant="body2">{content?.content}</MDTypography> */}
             <div dangerouslySetInnerHTML={{ __html: content?.content }} />
             <Footer />
