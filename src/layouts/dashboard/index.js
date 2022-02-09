@@ -48,7 +48,7 @@ import MDTypography from "components/MDTypography";
 
 import AchievementBannerSrc from "assets/images/Achievement.png"
 import PromotionBannerBg from "assets/images/PromotionBannerBg.png"
-import Helin from "assets/images/Helin.png"
+import Marie from "assets/images/team-2.jpg"
 import MDAvatar from "components/MDAvatar";
 
 // install Swiper modules
@@ -158,7 +158,7 @@ function Dashboard() {
           }}>
             <Grid container spacing={4} px={2}>
               <Grid item sm={0} md={3} display={{ xs: 'none', md: 'flex' }} justifyContent="flex-end" >
-                <MDAvatar src={Helin} alt="Avatar" size="xxl" />
+                <MDAvatar src={Marie} alt="Avatar" size="xxl" />
               </Grid>
               <Grid item sm={12} md={9} display='flex' flexDirection="column" justifyContent="center">
                 <MDTypography variant="h3" color="warning">Congratulations, Richard ! </MDTypography>

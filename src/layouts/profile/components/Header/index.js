@@ -31,7 +31,7 @@ import MDAvatar from "components/MDAvatar";
 import breakpoints from "assets/theme/base/breakpoints";
 
 // Images
-import Helin from "assets/images/Helin.png";
+import Richard from "assets/images/team-2.jpg";
 import backgroundImage from "assets/images/bg-profile.jpeg";
 
 function Header({ children }) {
@@ -88,7 +88,7 @@ function Header({ children }) {
       >
         <Grid container spacing={3} alignItems="center">
           <Grid item>
-            <MDAvatar src={Helin} alt="profile-image" size="xl" shadow="sm" />
+            <MDAvatar src={Richard} alt="profile-image" size="xl" shadow="sm" />
           </Grid>
           <Grid item>
             <MDBox height="100%" mt={0.5} lineHeight={1}>

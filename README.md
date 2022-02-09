@@ -1,9 +1,30 @@
 # RHBsmart
 Submission for RHB Get Your Hack On: Data Edition 2022
+### [Link to prototype](https://rhb-smart.herokuapp.com/)
+<img src="dashboard.jpg" alt="first screenshot" width="600"/>
 
-Challenge: How might we provide actionable insights on our marketing initiatives to the bank, so that we could better target and attract our customers?
+## Challenge 
+How might we provide actionable insights on our marketing initiatives to the bank, so that we could better target and attract our customers?
 
+## Our solution
 We built a financial health dashboard to provide a comprehensive financial health analysis report, then map users to academy courses. The idea was also able to better connect relationship managers and affluent customers.
+
+## Features
+1. Chatbot on every page
+
+### Dashboard Page
+1. View banner, transactions and total amount spent on each category
+2. View Emergency Fund article from dashboard
+
+### Investment Page
+1. Fill up rish assessment form
+2. View personal investment related information
+
+### Academy Page
+1. View different articles
+
+### My Advisor Page
+1. Chat UI
 
 <hr/>
 
