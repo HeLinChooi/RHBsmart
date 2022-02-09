@@ -31,8 +31,8 @@ import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatist
 import { Divider } from "@mui/material";
 import SimpleStatisticsCard from "examples/Cards/StatisticsCards/SimpleStatisticsCard";
 import MDButton from "components/MDButton";
-import investmentProducts from "./data/investmentProducts";
 import riskAssessmentBannerBg from "assets/images/riskAssessmentBannerBg.png";
+import investmentProducts from "./data/investmentProducts";
 
 function Investment() {
   const navigate = useNavigate();

@@ -147,8 +147,8 @@ function Dashboard() {
           "disableOnInteraction": true,
           stopOnLast: true,
         }}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => {}}
+        onSwiper={() => {}}
       >
         <SwiperSlide>
           <MDBox container display="flex" borderRadius="xl" alignItems="center" mb={5} sx={{

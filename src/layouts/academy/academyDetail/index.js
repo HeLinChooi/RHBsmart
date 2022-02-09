@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 
 import MDTypography from "components/MDTypography";
 
