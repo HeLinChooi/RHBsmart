@@ -12,6 +12,7 @@ Coded by www.creative-tim.com
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
+/* eslint-disable react/prop-types */
 
 import { useMemo, useEffect, useState } from "react";
 
@@ -288,7 +289,7 @@ DataTable.propTypes = {
   ]),
   canSearch: PropTypes.bool,
   showTotalEntries: PropTypes.bool,
-  table: PropTypes.objectOf(PropTypes.array).isRequired,
+  table: PropTypes.instanceOf(Array).isRequired,
   pagination: PropTypes.shape({
     variant: PropTypes.oneOf(["contained", "gradient"]),
     color: PropTypes.oneOf([

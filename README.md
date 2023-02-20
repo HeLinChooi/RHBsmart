@@ -1,6 +1,8 @@
 # RHBsmart
 Submission for RHB Get Your Hack On: Data Edition 2022
-### [Link to prototype](https://rhb-smart.herokuapp.com/)
+
+Link to prototype: https://rhb-smart.vercel.app
+
 <img src="dashboard.jpg" alt="first screenshot" width="600"/>
 
 ## Challenge 
